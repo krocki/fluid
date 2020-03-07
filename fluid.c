@@ -78,8 +78,8 @@ void mouse_pos_callback(GLFWwindow* window, double x, double y) {
   glfwGetWindowSize(window, &width, &height);
   last_x = mx;
   last_y = my;
-  mx = x/(double)width;
-  my = y/(double)height;
+  mx = x/(float)width;
+  my = y/(float)height;
   xpos = (int)(mx * WIDTH);
   ypos = (int)(my * HEIGHT);
   //printf("%f %f, %f %f, data[%d][%d] = %f\n", x, y, mx, my, ypos, xpos, u0x[xpos + ypos*WIDTH]);

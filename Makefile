@@ -3,7 +3,7 @@ LD=gcc
 
 .SUFFIXES:
 
-TARGETS=fluid
+TARGETS=fluid sim.so
 DEPS:=$(wildcard *.h) Makefile
 
 CFLAGS = -g -std=c99 -Wfatal-errors -Wall -pedantic -DGL_SILENCE_DEPRECATION
@@ -21,10 +21,13 @@ LFLAGS:=$(LFLAGS) $(GL_FLAGS)
 
 all : $(TARGETS) $(DEPS)
 
+%.so: %.c $(DEPS)
+	$(CC) $(CFLAGS) $< -shared -o $@
+
 %.o: %.c $(DEPS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-% : %.o gl_utils.o
+%: %.o gl_utils.o
 	$(LD) $^ $(LFLAGS) -o $@
 
 clean :
