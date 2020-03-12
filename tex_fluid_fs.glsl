@@ -6,6 +6,7 @@ uniform vec2 cursor;
 uniform sampler2D tex_ux;
 uniform sampler2D tex_uy;
 uniform sampler2D tex_p;
+uniform sampler2D tex_dv;
 uniform vec3 colormap_a, colormap_b, colormap_c, colormap_d;
 
 out vec4 frag_color;
@@ -30,7 +31,7 @@ float dist(vec2 a, vec2 b) {
 
 void main () {
 
-  frag_color = vec4(texture(tex_p, uv).x * 0.5, texture(tex_ux, uv).x+0.5, texture(tex_uy, uv).x+0.5, 1.0);
+  frag_color = vec4(0.5, texture(tex_ux, uv).x+0.5, texture(tex_uy, uv).x+0.5, 1.0);
   //frag_color = colormap(texture(tx, uv).x);
   //frag_color += dist(uv, cursor) < 0.01f ? vec4(0, 0.5, 0, 0) : vec4(0,0,0,0);
 
