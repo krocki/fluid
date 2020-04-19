@@ -3,7 +3,7 @@ LD=gcc
 
 .SUFFIXES:
 
-TARGETS=fluid gl sim.so
+TARGETS=gl sim.so
 DEPS:=$(wildcard *.h) Makefile
 
 CFLAGS = -g -std=c99 -Wfatal-errors -Wall -pedantic -DGL_SILENCE_DEPRECATION

@@ -1,17 +1,31 @@
 Fluid dynamics environment (to provide learning data for NN)
 
-# Quck start:
- - build the shared lib
-`make sim.so`
+# Quick start (OpenGL frontend):
 
-# use OpenGL frontend (`make gl`)
+### Mac OS:
+```
+brew install glfw3
+```
+
+### Ubuntu:
+
+```
+sudo apt-get install libglfw3-dev
+```
+
 ```
 make gl
 ./gl
 ```
+
 <img src=./img/gl.gif width=500/>
 
-or python
+## Or build the shared lib
+
+`make sim.so`
+
+and use through python
+
 ```
 python3 sim.py
 ```
