@@ -1,3 +1,5 @@
+#include <stdint.h>
+
 #define WIDTH 128
 #define HEIGHT 128
 
