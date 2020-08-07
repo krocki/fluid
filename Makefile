@@ -6,8 +6,8 @@ LD=gcc
 TARGETS=gl sim.so
 DEPS:=$(wildcard *.h) Makefile
 
-CFLAGS = -g -std=c99 -Wfatal-errors -Wall -pedantic -DGL_SILENCE_DEPRECATION
-LFLAGS = -g
+CFLAGS = -g -std=c99 -Wfatal-errors -Wall -fPIC -pedantic -DGL_SILENCE_DEPRECATION
+LFLAGS = -g -Wl,-rpath='${PWD}'
 
 OS:=$(shell uname)
 ifeq ($(OS),Darwin) # Mac OS
@@ -28,7 +28,7 @@ all : $(TARGETS) $(DEPS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 fluid: fluid.o gl_utils.o
-	$(CC) $^ $(LFLAGS) -o $@
+	$(CC) $^ -o $@ $(LFLAGS)
 
 gl: gl.o gl_utils.o sim.so
 	$(CC) $^ $(LFLAGS) -o $@
